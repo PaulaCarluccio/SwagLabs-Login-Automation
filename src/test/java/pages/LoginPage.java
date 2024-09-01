@@ -5,7 +5,7 @@ public class LoginPage extends BasePage {
     private final String usernameInput = "//input[@id='user-name']";
     private final String passwordInput = "//input[@id='password']";
     private final String loginButton = "//input[@id='login-button']";
-    private final String errorMessage = "//h3[data-test='error']"; 
+    private final String errorMessage = "//h3[@data-test='error']"; 
 
     public LoginPage() {
         super(driver);

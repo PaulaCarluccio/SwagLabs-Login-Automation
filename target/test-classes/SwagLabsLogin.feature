@@ -1,3 +1,4 @@
+@Sanity
 Feature: User login functionality
   Background:
     Given I am on the Swag Labs login page
