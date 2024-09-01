@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 public class ProductsPage extends BasePage {
 
     private final String pageTitle = "//span[@class='title']";

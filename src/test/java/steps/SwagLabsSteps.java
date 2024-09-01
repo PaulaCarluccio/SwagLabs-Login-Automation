@@ -1,15 +1,12 @@
 package steps;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.testng.Assert;
 //import org.testng.asserts.SoftAssert;
+import java.util.Arrays;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import pages.LoginPage;
 import pages.ProductsPage;
 
@@ -63,8 +60,9 @@ public class SwagLabsSteps {
             "Sauce Labs Onesie",
             "Test.allTheThings() T-Shirt (Red)"
         );
-
+    
         Assert.assertEquals(actualItemTitles, expectedItemTitles, "The list of item titles on the Products Page is incorrect.");
+        Assert.assertEquals(actualImageLinks, expectedImageLinks, "The list of item images on the Products Page is incorrect.");
     }
     
     @Then("^I should see an error message (.*)$")

@@ -58,11 +58,11 @@ public class BasePage {
 
     public List<String> getElementTextValues(String locator) {
         List<WebElement> elements = findElements(locator);
-        List<String> texts = new ArrayList<>();
+        List<String> list = new ArrayList<>();
         for (WebElement element : elements) {
-            texts.add(element.getText());
+            list.add(element.getText());
         }
-        return texts;
+        return list;
     }
 
     public List<String> getImageSrcValues(String locator) {
