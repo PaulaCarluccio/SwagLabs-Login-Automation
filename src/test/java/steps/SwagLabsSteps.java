@@ -1,17 +1,20 @@
 package steps;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
-import java.util.Arrays;
+//import org.testng.asserts.SoftAssert;
 
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pages.LoginPage;
 import pages.ProductsPage;
 
 public class SwagLabsSteps {
-    SoftAssert soft = new SoftAssert();
+    //SoftAssert soft = new SoftAssert();
 
     LoginPage loginPage = new LoginPage();
     ProductsPage productsPage = new ProductsPage();
@@ -62,5 +65,13 @@ public class SwagLabsSteps {
         );
 
         Assert.assertEquals(actualItemTitles, expectedItemTitles, "The list of item titles on the Products Page is incorrect.");
+    }
+    
+    @Then("^I should see an error message (.*)$")
+    public void validateErrorMessage(String message) {
+        String actualMessage = loginPage.getErrorMessage(); 
+        String expectedMessage = message; 
+
+        Assert.assertEquals(actualMessage, expectedMessage, "The error message is unexpected.");
     }
 }

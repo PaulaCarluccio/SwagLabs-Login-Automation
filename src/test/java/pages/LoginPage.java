@@ -2,10 +2,10 @@ package pages;
 
 public class LoginPage extends BasePage {
 
-    private String usernameInput = "//input[@id='user-name']";
-    private String passwordInput = "//input[@id='password']";
-    private String loginButton = "//input[@id='login-button']";
-    private String errorMessage = "//h3[data-test='error']"; 
+    private final String usernameInput = "//input[@id='user-name']";
+    private final String passwordInput = "//input[@id='password']";
+    private final String loginButton = "//input[@id='login-button']";
+    private final String errorMessage = "//h3[data-test='error']"; 
 
     public LoginPage() {
         super(driver);
@@ -17,7 +17,6 @@ public class LoginPage extends BasePage {
 
     public void enterUsername(String username) {
         write(usernameInput, username);
-
     }
 
     public void enterPassword(String password) {
@@ -26,6 +25,10 @@ public class LoginPage extends BasePage {
 
     public void clickLoginButton() {
         clickElement(loginButton);
+    }
+
+    public String getErrorMessage() {
+        return getElementText(errorMessage);
     }
     
 }
