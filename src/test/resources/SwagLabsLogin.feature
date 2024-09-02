@@ -4,18 +4,17 @@ Feature: User login functionality
     Given I am on the Swag Labs login page
 
 @PositiveScenarios
-  Scenario Outline: Successful login
-    When I enter the credentials <username> and <password>
-    And I click on the Login button
-    Then I should be redirected to the Products page
-    And I should see inventory items
-    Then I go to the principal 
+Scenario Outline: Successful login
+  When I enter the credentials <username> and <password>
+  And I click on the Login button
+  Then I should be redirected to the Products page
+  And I should check if inventory items and images match <should_match>
 
-    Examples:
-      | username                | password     |
-      | standard_user           | secret_sauce |
-      | problem_user            | secret_sauce |
-      | performance_glitch_user | secret_sauce |
+Examples:
+  | username                | password     | should_match |
+  | standard_user           | secret_sauce | true         |
+  | problem_user            | secret_sauce | false        |
+  | performance_glitch_user | secret_sauce | true         |
 
 @NegativeScenarios
   Scenario Outline: Unsuccessful login
