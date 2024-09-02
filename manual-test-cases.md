@@ -22,7 +22,7 @@
 2. Enter the username `problem_user` and password.
 3. Click on Login button.
 
-**Expected result:** The user is successfully logged in and redirected to the Products page. The inventory items are displayed correctly.
+**Expected result:** The user is successfully logged in and redirected to the Products page. The inventory items are displayed, but some with incorrect details.
 
 ## Test Case 4: [performance_glitch_user] - Successful login with valid credentials
 
