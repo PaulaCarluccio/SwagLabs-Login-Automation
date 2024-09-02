@@ -16,5 +16,11 @@ These versions are recommended to ensure compatibility, but the project may work
 - src/test/java/runner/: Contains the test runner class.
 - pom.xml: Maven configuration file.
 
-# Known Issues
-- One of the tests, specifically the "Problem User" scenario that validates images, is expected to fail due to the current setup.
+# How to Run
+- Go to runner/TestRunner.java and execute it.
+
+# Find the Report
+- After execution, the report will be available in target/surefire-reports.
+
+![cucumber reports](https://github.com/user-attachments/assets/82b3c8ac-80d0-4415-9961-41c48ec264d3)
+![Cucumber report](https://github.com/user-attachments/assets/b3d4744d-f546-416e-b45a-468c6cf79ada)
