@@ -1,12 +1,14 @@
 # SwagLabs-Login-Automation
 Automation project for the Swag Labs login functionality, implemented in Java using the Page Object Model (POM) pattern and Cucumber/Gherkin for behavior-driven development (BDD).
 
-## Features
+## Requirements
 
-- Automated login test scenarios
-- Uses Cucumber for behavior-driven development
-- Selenium WebDriver for browser interactions
-- Maven for build management and test execution
+This project was developed and tested with the following versions:
+
+- **Java 22** 
+- **Maven 3.9.9** 
+
+These versions are recommended to ensure compatibility, but the project may work with older versions as well.
 
 # Project Structure
 - src/test/resources/: Contains feature files (.feature) for Cucumber.

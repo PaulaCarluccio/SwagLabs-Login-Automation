@@ -9,6 +9,7 @@ Feature: User login functionality
     And I click on the Login button
     Then I should be redirected to the Products page
     And I should see inventory items
+    Then I go to the principal 
 
     Examples:
       | username                | password     |

@@ -1,6 +1,0 @@
-pages\BasePage.class
-pages\ProductsPage.class
-pages\LoginPage.class
-steps\SwagLabsSteps.class
-steps\Hooks.class
-runner\TestRunner.class
