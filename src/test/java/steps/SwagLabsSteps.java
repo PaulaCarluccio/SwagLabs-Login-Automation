@@ -39,8 +39,8 @@ public class SwagLabsSteps {
         Assert.assertEquals("Products", pageTitle);
     }
 
-    @Then("I should see inventory items")
-    public void validateListOfItems() {
+    @And("^I should check if inventory items and images match (.*)$")
+    public void validateListOfItems(boolean shouldMatch) {
         List<String> actualImageLinks = productsPage.returnListOfImages();
         List<String> actualItemTitles = productsPage.returnListOfItems();
         
@@ -61,9 +61,14 @@ public class SwagLabsSteps {
             "Sauce Labs Onesie",
             "Test.allTheThings() T-Shirt (Red)"
         );
-    
+        
+        if (shouldMatch) {
+            Assert.assertEquals(actualImageLinks, expectedImageLinks, "The list of item images on the Products Page is incorrect.");
+        } else {
+            Assert.assertNotEquals(actualImageLinks, expectedImageLinks, "The list of item images on the Products Page is unexpectedly correct.");
+        }
+
         Assert.assertEquals(actualItemTitles, expectedItemTitles, "The list of item titles on the Products Page is incorrect.");
-        Assert.assertEquals(actualImageLinks, expectedImageLinks, "The list of item images on the Products Page is incorrect.");
 
         productsPage.afterLogin();
     }

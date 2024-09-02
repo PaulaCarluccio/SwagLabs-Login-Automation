@@ -2,6 +2,8 @@ package pages;
 
 import java.util.List;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 public class ProductsPage extends BasePage {
 
     protected final String pageTitle = "//span[@class='title']";
@@ -30,9 +32,8 @@ public class ProductsPage extends BasePage {
 
     public void afterLogin() {
         clickElement(toggle);
+        wait.until(ExpectedConditions.elementToBeClickable(find(logOut)));
         clickElement(logOut);
-        explicitWait(5);
-        driver.quit();
-    }
+        }
     
 }

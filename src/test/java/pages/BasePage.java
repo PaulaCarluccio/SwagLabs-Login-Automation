@@ -9,8 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -18,7 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BasePage {
    protected static WebDriver driver;  
 
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     static {
         WebDriverManager.chromedriver().setup();
@@ -38,9 +36,10 @@ public class BasePage {
         driver.quit();
     }
 
-    public static void explicitWait(int seconds) {
+    /*public static void explicitWait(int seconds) {
+        //No se pudo resolver la espera explícita de 5 segundos.
         Thread.sleep(seconds);
-    }
+    }*/
 
     public WebElement find(String locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
