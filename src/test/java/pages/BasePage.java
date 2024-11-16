@@ -7,39 +7,35 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class BasePage {
-   protected static WebDriver driver;  
+    protected static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
+    WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-    static {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+    public static void setDriver(WebDriver driver) {
+        threadDriver.set(driver);
     }
 
-    public BasePage(WebDriver driver) {
-        BasePage.driver = driver;
-    } 
-
-    public static void navigateTo(String url) {
-        driver.get(url);
+    public static WebDriver getDriver() {
+        return threadDriver.get();
     }
 
     public static void closeBrowser() {
-        driver.quit();
+        if (threadDriver.get() != null) {
+            threadDriver.get().quit();
+            threadDriver.remove();
+        }
     }
 
-    /*public static void explicitWait(int seconds) {
-        //No se pudo resolver la espera explícita de 5 segundos.
-        Thread.sleep(seconds);
-    }*/
+    public BasePage(WebDriver driver) {
+        setDriver(driver);
+    }
+
+    public static void navigateTo(String url) {
+        getDriver().get(url);
+    }
 
     public WebElement find(String locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));

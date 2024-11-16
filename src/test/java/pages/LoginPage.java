@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -14,8 +15,8 @@ public class LoginPage extends BasePage {
     protected final String errorIcons = "//input/../*[name()='svg']"; 
 
 
-    public LoginPage() {
-        super(driver);
+    public LoginPage(WebDriver driver) {
+        super(driver); 
     }
 
     public void navigaToLoginPage() {

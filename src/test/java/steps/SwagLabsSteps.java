@@ -9,14 +9,19 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.BasePage;
 import pages.LoginPage;
 import pages.ProductsPage;
 
 public class SwagLabsSteps {
 
-    LoginPage loginPage = new LoginPage();
-    ProductsPage productsPage = new ProductsPage();
+    private LoginPage loginPage;
+    private ProductsPage productsPage;
 
+    public SwagLabsSteps() {
+        loginPage = new LoginPage(BasePage.getDriver());
+        productsPage = new ProductsPage(BasePage.getDriver());
+    }
     @Given("I am on the Swag Labs login page")
     public void navigateToSwagLabs() {
         loginPage.navigaToLoginPage();

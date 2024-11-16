@@ -2,6 +2,7 @@ package pages;
 
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductsPage extends BasePage {
@@ -14,8 +15,8 @@ public class ProductsPage extends BasePage {
     protected final String toggle = "//button[@id='react-burger-menu-btn']";
     protected final String logOut = "//a[@id='logout_sidebar_link']";
 
-    public ProductsPage() {
-        super(driver);
+        public ProductsPage(WebDriver driver) {
+        super(driver); 
     }
 
     public String getPageTitle() {
